@@ -1,0 +1,19 @@
+COMP-1630Review Questions
+Robert DesjardinsWeek011. Discuss each of the following terms: data, field, record, file:Data is unsorted information, statistics, or facts relating to something.
+Fields in databases are the columns. They hold the same type of data which each pertain to a given record.
+Records in a database are the rows. They hold related data (which can be of different types). 
+Files are a table with fields and records which hold related entities. 
+
+2. Data redundancy simply means repetition of the same data. File systems where some department/individual does not have access to a data file, may need to copy that file in-order to access that data- which is redundant. 
+
+3. Data independence is when one can change the data or data type in a program without affecting the ability to work with that data. This is important because it allows databases to be more robust and continue working regardless of changes to the data. 
+
+4. Database design is important because it effects everything about a database from how it stores data to how accurate the data is. Good database design will result in data integrity, high security, fast searches, and detailed and informative data. All of this can result in higher productivity and a reduction in errors from the clients using the database. 
+
+5. In the file structure there are 7 records and 5 fields per record.
+
+6. In the given file structure the data redundancy problems from from the fact that projects are listen multiple times for each person working on a project. This leads to multiple cases of each project as well as multiple cases of employees which in turn means multiple instances of each employees hourly rate, job code, and phone number. This leads to increased chance of errors and it is more difficult to change data like an employees phone number of remove an employee from the project if they are moved off of the project or let go. 
+
+7. A simple improvement to the file structure would be to create another file for the employees which can have the fields: EMP_NUM (the primary key), EMP_NAME, JOB_CODE, and EMP_PHONE.
+
+8. All of the records referencing KOM would point to a non-existent building. The database should throw an error if you try to delete KOM and one or more records reference KOM, or it should remove all records that reference KOM. 
