@@ -1,0 +1,63 @@
+COMP-1630
+Review Questions
+Robert Desjardins
+Week02
+
+1. A table is a collection of related entities where each entity is represented as a tuple in the table. A database is a collection of tables which can be viewed, queried, and modified using a DBMS. 
+
+2. This is to say that a database does not have duplicate tuples in a table (Entity Integrity) and that all references using a FK should reference a valid PK (Referential Integrity). 
+
+3. The relational data model is one type of data model where a majority of the underlying connections between tables is handled by the computer. This leads to a very simple interface for the end user who can view the database as a collection of tables which are logically connected. Designers also have an easier time with relational databases due to the data independence from this model. 
+
+4. Logical independence is when the external and conceptual levels are unaffected by changes to the internal model. 
+
+5. Physical independence is when the internal level, and consequentially the external and conceptual levels, is unaffected by changes to the physical level 
+
+6. Both entity and referential integrity are very important in a database because the end-users need to know that the information that they are using is accurate. Lack of entity integrity opens up the possibility of data anomalies and other issues. Lack of referential integrity also creates issues if a tuple in one table is modified and references to or from that tuple are not updated. 
+
+7. Table: EMPLOYEE
+PK: EMP_CODE
+FK(s): STORE_CODE
+
+Table: STORE
+PK: STORE_CODE
+FK(s): REGION_CODE and EMP_CODE
+
+Table: REGION
+PK: REGION_CODE
+FK(s): None
+
+8. EMPLOYEE does exhibit referential integrity
+STORE does exhibit referential integrity
+REGION: N/A
+
+9. All the tables exhibit entity integrity as they all appear to use a unique PK and don't have any duplicate tuples. 
+
+10 & 11 & 12
+Table: CHARTER 
+PK: CHAR_TRIP
+FK(s): AC_NUMBER, CUS_CODE
+
+Table: AIRCRAFT
+PK: AC_NUMBER
+FK(s): MOD_CODE
+
+Table: MODEL
+PK: MOD_CODE
+FK(s): None
+
+Table: PIOLT
+PK: EMP_NUM
+FK(s): EMP_NUM
+
+Table: EMPLOYEE
+PK: EMP_NUM
+FK(s): None
+
+Table: CUSTOMER
+PK: CUS_CODE
+FK(s): None
+
+
+
+

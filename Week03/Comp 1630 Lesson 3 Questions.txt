@@ -1,0 +1,29 @@
+COMP 1630 - RQ3
+Robert Desjardins
+
+1. An Associative Entity is an entity with 1:M relationships with the 2 entities that needed to be connected. The PK of the Associative Entity is a compound key of the 2 PKs of the other entities (ie. the FKs). This means that only one instance of the connected entities can exist in the Associative Entity. 
+A Transactional Entity is an entity also with 1:M relationships with the 2 entities being connected. However, it has its own PK and has the PK of the other 2 entities as FKs only. This means that any number of instances of the same tuples from the connected entities can exist in a Transactional Entity. 
+
+2. A weak entity must be existence-dependent. That is to say that it cannot exist without an entity which it has a relationship with. 
+Also, a weak entity must have a primary key which includes a FK of the parent entity in the relationship.
+
+3. A strong relationship is when the child in a relationship has a primary key which includes a FK of the parent entity. 
+
+4. An example is a building being the parent entity and a room being the child entity. The child entity has a primary key of BUILDING_ID and ROOM_NUMBER, where BUILDING_ID is a FK pointing to the PK of building. 
+
+5. A recursive relationship is when an entity has a relationship with itself. An example would be a many to many relationship from EMPLOYEE to EMPLOYEE with a minimum cardinality of 0 called "is friendly with". This would show that an employee can get along with many other employees (or none). 
+
+
+6. A CUSTOMER can own anywhere from 0 to any number of CARs but each CAR must belong to 1 CUSTOMER. Also, each CAR can get 0 to many MAINTENANCE work done, but each MAINTENANCE which is performed is done to one car only. 
+
+7.
+CUSTOMER (1..1)      CAR(0..*)
+CAR(1..1)            MAINTENANCE(0..*)
+MAINTENANCE(1..1)    MAIN_LINE (1..*)
+MAINT_LINE(0..1)     PART(1..1)
+
+8. This can be implemented as CLASS is a child of COURSE and CLASS has a PK consisting of CRS_ID and CLASS_ID. This would be a strong relationship between COURSE and CLASS. 
+
+Another implementation could be CLASS has a PK of CLASS_ID and a FK of CRS_ID. This is a weak relationship and CLASS is a strong entity because it does not include a FK from course in its PK. 
+
+
