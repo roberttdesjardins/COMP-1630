@@ -1,0 +1,197 @@
+Things to learn:
+WEEK 1:
+Traditional File Systems
+ - Limitations:
+   - Application dependent on data structure
+   - Data redundancy
+   - Data anomalies (from redundancy)
+   - Lack of data integration
+   - Lack of security
+Database
+ - A shared collection of logically related data
+ - Data Dictionary: Description of the data
+ - Software includes: OS, Applications, DBMS
+Types of Databases
+ - Single user vs Multi-user
+ - Centralized vs Distributed
+ - 2-Tier vs 3-Tier
+DBMS: Software system that enables users to define, create and maintain data, as well as control access to a database
+ - Uses a Data Definition Language (DDL) to define the structure of the database
+   - Describes entities, attributes, and relationships, and integrity and security constraints
+   - Enables schema definition by Database Admin
+   - Creates the Data Dictionary 
+ - Uses a Data Manipulation Language (DML) to insert, update, retrieve, and delete data from the DB
+   - Set of operations (EX: SQL)
+Schema: Logical organization of the entire database
+Sub-schema: The view seen by the user
+ - Provide a level of security
+ - presents a consistent, unchanging picture of the structure of the database
+
+DBMS Advantages:
+ - Data redundancy control
+ - Data consistency
+ - Data integrity
+ - Data security
+ - Standards enforcement 
+ - Data sharing
+ - Economy of scale
+ - Data accessibility
+ - Data independence 
+ - Backup and recovery 
+ - Concurrent usage 
+DBMS Disadvantages:
+ - Complexity
+ - Size
+ - Costs
+ - High impact of failure 
+
+WEEK 2:
+Table: A matrix of rows (Tuples) and columns (Attributes/fields)
+ - Called an entity in ERD
+ - Tuples must be distinct because of PK
+ - All columns must share the same data format and range of values (Attribute domain)
+3-Level Architecture
+ 1. External Level: User Views (Sub-schemas)
+   - Simplified, allows customization, hides data
+ 2. Conceptual Level (Designers View)
+   - Only 1
+   - All entities, their attributes, and relationships
+   - Constraints, security, and integrity
+ 3. Internal Level (DBMS View)
+   - Only 1
+   - Storage space allocation for data and indexes
+   - Data compression and encryption
+   - Handled by OS
+Data Independence
+ - Logical Independence: Immunity of the external and conceptual model to changes in the internal model 
+ - Physical Independence: Immunity of the internal model from changes to the physical model and the OS
+Keys
+ - Candidate Key: Attributes that may be used as PK (Need to be unique)
+ - PK: Attribute selected to be used to uniquely identify each entity instance
+   - Should be unique, consistent, not be null, not change, not have meaning
+ - Alternate Key: All other candidate keys
+ - Secondary Key: Used strictly for data retrieval purposes
+ - FK: PK from another table. Always on the many side of a relationship
+ - Composite Key: Two or more attributes used for a PK
+Integrity Constraints
+ - Domain Constraints: Values are restricted by the domain of the attribute
+ - Entity Integrity: PK cannot be null
+ - Referential Integrity: FK must reference a valid PK or be null
+ - Cardinality: Min and Max values between entities of a relationship
+Relational Operators
+ - Select: Yields rows that satisfy an attribute constraint
+ - Join: Combines two+ tables using FK
+   - Inner Join: Only yields rows that have values
+   - Left Outer Join: Yields all rows in the left table even if no matching value in right table
+   - Right Outer Join
+   - Full Outer Join: All rows even if no matching values
+ - Union: Combines all rows from two tables. Tables must be union-compatible (Same # of columns, compatible domains)
+ - Product: Yields all possible pairs of rows from two tables
+ - Intersect: Yields only rows that appear in both tables. Tables must be union-compatible
+ - Difference: Yields all rows in one table that are not found in the other table. Union compatible.
+ - Project: Yields all values of the selected attributes
+ - Divide: ..
+
+WEEK 3: Entity Relationship Modeling
+ERD
+Crows foot, Chen, UML
+Multiplicity
+ - Cardinality: Maximum number of possible relationship occurrences for an entity in a relationship
+   - One-to-one, one-to-many, many-to-many
+ - Participation
+   - Mandatory: When all occurrences must participate in the relationship
+     - 1..*
+   - Optional: When only some occurrences participate in the relationship
+     - 0..*
+Degree: Number of entities in a relationship 
+Non-Identifying Relationship: Weak relationship
+ - Entities have their own, independent PK
+ - Strong Entities 
+Identifying Relationship: Strong relationship
+ - Parent to Child
+ - Part of the child PK is inherited from the parent. The other is its own
+ - The child is dependent or a weak entity
+Non-Specific Relationship: Many-to-Many
+ - Bridging entity: New entity to resolve M:M
+   - Associative Entity:
+     - Inherits PK from the TWO entities.
+     - Is a week entity
+     - Does not allow for more than one instance of each instance pair
+   - Transactional Entity: 
+     - Has its own PK as well as FK's of each connected entity
+     - Allows for multiple combinations of instances of the connected entities
+
+WEEK 4: Functional Dependencies, Normalization, Conceptual Design
+Function Dependencies:
+ - A relationship between two attributes
+ - Attribute B is FD on attribute A, if for every valid instance of A, that value of A uniquely determines the value of B
+   - A -> B
+ - Partial Dependency: B is dependent on a proper subset of A
+ - Full Dependency: The removal of any attribute from A causes the dependency to fail
+Dependency Rules:
+ - Self-determination: A->A
+ - Reflexive: If B is a subset of A, then A -> B
+ - Augmentation: If A -> B, then AC -> B
+ - Transitivity: If A -> B and B -> C, then A -> C
+ - Decomposition: If A -> BC, then A -> B and A -> C
+ - Union: If A -> B and A -> C, then A -> BC
+Normalization: 
+ - Organizes data into entities that are: Simple, non-redundant, stable, and adaptable 
+ - Main aim is to eliminate redundancies: Insert, delete, and modification anomalies
+ - 1st Normal Form: An entity whose attributes have no more than 1 value for a single instance
+ - 2nd Normal Form: An entity whose non-PK attributes are fully dependent on the PK
+ - 3rd Normal Form: An entity whose non-PK attributes are not dependent on any other non-PK attribute
+   - IE: No calculated values 
+ - De-normalize for historical accuracy
+
+
+
+
+
+
+
+WHAT IS ON THE MID-TERM EXAM:
+3 hours long
+Closed book
+100 marks -> 30% of term mark
+
+Section #1: 
+10 marks
+10 questions
+List of 26words 
+Need to figure out which word matches that phrase.
+EX: A row of a relation or table: Answer: Tuple
+
+Section #2:
+Entities and relationships
+20 marks
+10 questions
+Given a diagram with 10 entities (access)
+Ex: Identify the two weak entities
+Ex2: Which entities have a parent child relationship
+
+Section #3:
+Database concepts
+Can be paragraph or point form
+40 marks
+Answer 10 of the 15 questions
+Ex: What are 4 disadvantages of databases:
+Cost
+Complexity
+High impact of failure (People too reliant on it)
+Size (Can get very big)
+
+Section #4:
+Relational Algebra
+10 marks
+EX: 2 Tables, do a union between two tables. What is the result?
+
+Section #5: 
+20 marks
+Scenario and document. Using the narrative and sample document, develop a key based data-model by creating a ERD in URL format. Show all the entities, relationships, PK and FK that are required. 
+
+
+Average is around 69-72%
+
+
+

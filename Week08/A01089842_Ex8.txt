@@ -1,0 +1,71 @@
+-- Ex 8.1
+SELECT	SUBSTRING(t.title, 1, 30)		AS Title,
+	sa.ord_num				AS OrderNumber,
+	CONVERT(CHAR(12), sa.ord_date, 109)	AS OrderDate,
+	st.stor_name				AS StoreName
+FROM 		titles t
+LEFT OUTER JOIN sales sa	ON t.title_id = sa.title_id
+LEFT OUTER JOIN stores st	ON sa.stor_id = st.stor_id
+ORDER BY sa.ord_num
+
+
+-- Ex 8.2
+SELECT title_id, title, price, pub_id, pubdate
+INTO business_books
+FROM titles
+WHERE type = 'business'
+
+-- Ex 8.3
+SELECT	p.pub_name		AS PublisherName,
+	t.type			AS Type,
+	MIN(t.price)		AS MinPrice,
+	SUM(s.qty)		AS Qty
+FROM		publishers p
+INNER JOIN	titles t	ON p.pub_id = t.pub_id
+INNER JOIN	sales s		ON t.title_id = s.title_id
+GROUP BY t.type, p.pub_name
+ORDER BY PublisherName
+
+-- Ex 8.4
+SELECT	title_id				AS TitleID,
+	ytd_sales				AS YTDSales,
+	price					AS Price,
+	CONVERT(DECIMAL(5,2),(price * 1.15))	AS NewPrice
+FROM	titles
+WHERE	ytd_sales < 2500
+UNION
+SELECT	title_id,
+	ytd_sales,
+	price,
+	CONVERT(DECIMAL(5,2),(price * 1.10))
+FROM	titles
+WHERE	ytd_sales BETWEEN 2500 AND 10000
+UNION
+SELECT	title_id,
+	ytd_sales,
+	price,
+	CONVERT(DECIMAL(5,2),(price * 1.05))
+FROM	titles
+WHERE	ytd_sales > 10000
+ORDER BY title_id
+
+-- Ex 8.5
+SELECT	type		AS Type,
+	AVG(price)	AS Average,
+	SUM(price)	AS Sum
+FROM	titles
+WHERE	price IS NOT NULL
+GROUP BY type WITH ROLLUP
+
+-- Ex 8.6
+SELECT		st.stor_id		AS StoreID,
+		st.stor_name		AS StoreName,
+		SUM(sa.qty * t.price)	AS Cost
+FROM		stores st
+INNER JOIN	sales sa ON st.stor_id = sa.stor_id
+INNER JOIN	titles t ON sa.title_id = t.title_id 
+GROUP BY st.stor_id, st.stor_name
+HAVING SUM(sa.qty * t.price) BETWEEN 500 AND 1500
+ORDER BY st.stor_id
+
+

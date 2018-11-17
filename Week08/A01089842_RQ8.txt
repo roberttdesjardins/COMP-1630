@@ -1,0 +1,61 @@
+A01089842
+Review Questions 8
+
+1. 
+UNION doesn't include duplicate rows, where as UNION ALL includes all rows- even duplicates.
+
+2. 
+Alice Cordoza, John Cretchakov, Anne McDonald, Mary Chen
+
+3. 
+Alice Cordoza, John Cretchakov, Anne McDonald, John Cretchakov, Mary Chen
+
+4. 
+Left outer join: Includes all results from the left table, even if there is no matching result in the right table.
+Right outer join: Includes all results from the right table, even if there is no matching result in the left table.
+Full outher join: Includes all results from both tables, even if there is no matching result on the other table.
+
+5. 
+Unsure what is being asked?
+
+6. 
+UPDATE EMPLOYEE
+SET JOB_CODE 501
+WHERE EMP_NUM = 107
+
+7. 
+DELETE FROM EMPLOYEE
+WHERE 	EMP_LNAME = 'Smithfield' AND
+	EMP_FNAME = 'William' AND
+	EMP_HIREDATE = 'jun 22 2004' AND
+	JOB_CODE = '500'
+
+8. 
+SELECT * 
+INTO EMPLOYEE_2
+FROM EMPLOYEE
+
+ALTER TABLE EMPLOYEE_2
+ADD PROJ_NUM char(3)
+
+9. 
+SELECT 	c.CHAR_DATE,
+	c.CHAR_DESTINATION,
+	c.AC_NUMBER,
+	m.MOD_NAME,
+	m.MOD_CHG_MILE
+FROM CHARTER c
+INNER JOIN AIRCRAFT a ON c.AC_NUMBER=a.AC_NUMBER
+INNER JOIN MODEL m ON a.MOD_CODE=m.MODE_CODE
+WHERE c.CHAR_DATE = 'Feb 6 2006'
+
+10. 
+The GROUP BY clause combines all results that are identical in a certain column. This is useful for aggregate functions such as MAX or COUNT when applied to another column. The result will show the aggreate function for that column for each unique column which the table is grouped by.
+
+11. 
+the HAVING clause is used along with the GROUP BY clause as a WHERE clause which also can work with aggreate functions.
+
+12. 
+The ROLLUP clause is used after stating the columns to group by, and provides subtotals.
+
+13. Inner joins are a join which do not include any results from either table which do not have a matching result in the other table. This is the most efficient type of join. 

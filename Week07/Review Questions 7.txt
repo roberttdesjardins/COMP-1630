@@ -1,0 +1,98 @@
+Comp 1630 - Review Questions 7
+A01089842
+Robert Desjardins
+
+1.
+LIKE: Used for string pattern matching, similar to RegEx
+BETWEEN: Used to restrict results to be greater than or equal to the lowest range, and less than or equal to the highest range
+IN: Result must be contained in given array
+Greater than: Result must be greater than a given value.
+Less than: Result must be less than a given value.
+
+2. DATEADD adds a number to a date with a variable which represents which part of the date you are adding to (Like month, year, etc.).
+DATEDIFF calculates the amount of time between two given dates, with a variable which represents which datepart to measure from. 
+
+3. COUNT adds the number of rows, SUM calculates the total of the rows, and avg calculates the average of the rows (SUM/COUNT).
+
+4. 
+SELECT *
+FROM EMP_1
+WHERE JOB_CODE = 502
+
+5. 
+SELECT *
+FROM EMP_1
+WHERE EMP_LNAME LIKE 'SMITH%'
+ORDER BY EMP_FNAME
+
+6. 
+SELECT *
+FROM EMP_1
+ORDER BY EMP_LNAME DESC;
+
+7. 
+SELECT DISTINCT JOB_CODE
+FROM EMP_1
+ORDER BY JOB_CODE
+
+8. 
+SELECT	CUS_LNAME, 
+	CUS_FNAME,
+	CUS_INITIAL,
+	CUS_BALANCE
+FROM	CUSTOMER
+WHERE	CUS_BALANCE > 0.00
+ORDER BY CUS_BALANCE DESC
+
+9. 
+SELECT 	AVG(CUS_BALANCE)	AS Average Balance,
+	MIN(CUS_BALANCE)	AS Minimum Balance,
+	MAX(CUS_BALANCE)	AS Maximum Balance,
+	SUM(CUS_BALANCE)	AS Total Unpaid Bills
+FROM CUSTOMER
+
+10.
+SELECT COUNT(*)	AS Customers with balance over 500
+FROM CUSTOMER
+WHERE CUS_BALANCE > 500
+
+11. 
+SELECT CHAR_DATE, AC_NUMBER, CHAR_DESTINATION, CHAR_DISTANCE, CHAR_HOURS_FLOWN
+FROM CHARTER
+WHERE AC_NUMER = '2778V'
+ORDER BY CHAR_DATE
+
+12. SELECT and FROM
+
+13. AND means that both sides of the statement must be true, for the statement to be true.
+IE: 
+T & T = T
+T & F = F
+F & T = F
+F & F = F
+
+OR means that either side of the statement must be true. Inclusive or. 
+T & T = T
+T & F = T
+F & T = T
+F & F = F
+
+NOT means that that value will evaluate to false and all others will evaluate to true. So if a where clause says NOT NULL then anything that is NULL will evaluate to false. 
+!T = F
+!F = T
+
+14. 
+SELECT: Retrieves the specified columns from a table
+INSERT: Creates new rows in a table
+UPDATE: Modifies rows in a table
+DELETE: Deletes rows from a table
+
+15. Literals are constants (as opposed to variables) which are used in SQL statements
+Numeric datatype constants are written without quotations, while all other datatypes are written with quotations.
+
+
+
+
+
+
+

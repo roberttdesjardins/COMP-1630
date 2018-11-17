@@ -1,0 +1,67 @@
+COMP 1630 - Review Questions Lesson 6
+Robert Desjardins
+A01089842
+
+1.
+CREATE DATABASE products
+ON (
+    NAME = products_data,
+    FILENAME = '...\products_data.mdf'
+    )
+LOG ON (
+    NAME = products_log,
+    FILENAME = '...\products_log.mdf'
+    )
+
+2. A user-defined data type is one that conforms to the user's specified format. This is useful when the user wants multiple attributes to conform to the same format.
+
+3. Constraints limit the values allowed for each instance under that attribute. For example, NOT NULL means that each value cannot be NULL. UNIQUE means that each value under that attribute cannnot be the same as any other value under that attribute. 
+
+4. SQL is intended to interact with the data in a DBMS. It is useful because it can interact with any DBMS which conforms to SQL without needing to use actual code. 
+
+5. A database is a collection of tables with related data. 
+
+6. A table represents a group of objects, ideas, positions, etc. which share a collection of the same attribute types. It stores the data of instances of this group. 
+
+7. You must define the attribute names, the data types, the constraints, and the default values.
+
+8. timestamp is a data type which is a combination of date and time.
+
+9. The Data Definition Language (DDL) is used to create/modify tables in a DB.
+the Data Manipulation Language (DML) is used to manipulate the data within a table. 
+
+10. 
+CREATE TABLE BOOKINFO
+(
+    TITLE_ID           INT NOT NULL,
+    TITLE              VARCHAR(80) NOT NULL,
+    BOOK_TYPE          CHAR(12) NOT NULL,
+    PUBLISHER_ID       CHAR(4),
+    PRICE              MONEY,
+    PUBLISH_DATE       DATETIME NOT NULL
+)
+
+11. 
+ALTER TABLE BOOKINFO
+ADD DEFAULT ('unclassified') FOR BOOK_TYPE
+
+12. 
+ALTER TABLE BOOKINFO
+ADD DEFAULT (GETDATE()) for PUBLISHER_DATE
+
+13.
+ALTER TABLE BOOKINFO
+ADD NOTES VARCHAR(200);
+
+14. 
+ALTER TABLE BOOKINFO
+ADD CONSTRAINT constraint_name ...
+
+15. 
+DROP TABLE BOOKINFO
+DROP DATABASE products
+
+
+
+
+

@@ -1,0 +1,22 @@
+COMP 1630
+Review Questions Lesson 4
+
+1. What is normalization?
+Normalization is a process which is done in steps in order to reduce redundancies and create logical table structures. The goal is to create entities that are simple, non-redundant, stable, and adaptable/flexible. 
+
+2. When is a table in 1NF?
+This is when every instance in a table has at most 1 value per attribute.
+
+3. When is a table in 2NF?
+This is when all non-pk attributes are dependent on the PK.
+
+4. When is a table in 3NF?
+this is when all non-pk attributes are not dependent on any other non-pk attribute. 
+
+5. Partial dependency is when a proper subset of the determinate can still determine the dependent. It is associated with 2NF.
+
+6. Update, insertion, and deletion anomalies. The can be eliminated through the process of normalization. 
+
+7. Nouns are associated with entities. Verbs are associated with relationships.
+
+8. A supertype entity has the common entities that are inherited by each of its subtypes. 
